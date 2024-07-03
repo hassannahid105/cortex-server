@@ -33,10 +33,19 @@ const client = new MongoClient(uri, {
 async function run() {
   // Get the database and collection on which to run the operation
   const database = client.db("productList");
+  const services = database.collection("services");
   const product = database.collection("product");
   const myCart = database.collection("myCart");
   try {
     // ! product list
+
+    // service static id get
+
+    app.get("/services", async (req, res) => {
+      const cursor = services.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
 
     // get
     app.get("/product", async (req, res) => {
