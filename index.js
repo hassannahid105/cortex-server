@@ -6,6 +6,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const PORT = process.env.PORT || 5000;
 
 // ? middle ware
+// update
 app.use(
   cors({
     origin: [
